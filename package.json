@@ -6,7 +6,9 @@
   "scripts": {
     "test:unit": "mocha --require ts-node/register test/unit/*.spec.ts",
     "test:integration": "mocha --require ts-node/register test/integration/*.spec.ts",
-    "test": "npm run test:unit && npm run test:integration"
+    "test": "npm run test:unit && npm run test:integration",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
