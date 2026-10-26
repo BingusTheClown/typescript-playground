@@ -1,0 +1,26 @@
+name: CI Pipeline
+
+# Trigger the workflow on pushes or pull requests to the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # Use a GitHub-hosted Linux runner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      # Step 2: Run lint
+      - name: ESLint
+        run: npm run lint
+
+      # Step 3: Run Tests
+
+      - name: Run tests
+        run: npm run test

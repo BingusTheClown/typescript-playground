@@ -14,7 +14,6 @@ export function arraySimpleCompare(arrayOne: number[], arrayTwo: number[]): bool
     arrayTwo.sort();
 
     let arrayIsSame = true;
-    let currentValue;
 
     for (let i = 0; i < arrayOne.length; i++){
         if (arrayOne[i] != arrayTwo[i]){
