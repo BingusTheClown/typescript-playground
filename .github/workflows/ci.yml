@@ -16,11 +16,14 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v4
 
-      # Step 2: Run lint
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm' # Options: 'npm', 'yarn', 'pnpm'  
+
       - name: ESLint
         run: npm run lint
-
-      # Step 3: Run Tests
 
       - name: Run tests
         run: npm run test
