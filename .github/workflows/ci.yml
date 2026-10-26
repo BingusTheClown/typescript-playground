@@ -22,6 +22,9 @@ jobs:
           node-version: '24'
           cache: 'npm' # Options: 'npm', 'yarn', 'pnpm'  
 
+      - name: Install dependencies
+        run: npm ci    
+
       - name: ESLint
         run: npm run lint
 
