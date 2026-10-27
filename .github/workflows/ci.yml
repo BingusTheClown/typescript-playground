@@ -8,25 +8,15 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
-    # Use a GitHub-hosted Linux runner
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository code
-        uses: actions/checkout@v4
+  lint:
+    name: Run Linters
+    uses: ./.github/workflows/lint.yml
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: 'npm' # Options: 'npm', 'yarn', 'pnpm'  
+  test-unit:
+      - name: Run Unit tests
+        run: ./.github/workflows/run-integration-tests.yml
 
-      - name: Install dependencies
-        run: npm ci    
-
-      - name: ESLint
-        run: npm run lint
-
-      - name: Run tests
-        run: npm run test
+  test-integration:
+      - name: Run Integration tests
+        run: ./.github/workflows/run-integration-tests.yml
