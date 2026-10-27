@@ -8,15 +8,14 @@ on:
     branches: [ main ]
 
 jobs:
-
   lint:
     name: Run Linters
     uses: ./.github/workflows/lint.yml
 
-  test-unit:
-      - name: Run Unit tests
-        run: ./.github/workflows/run-integration-tests.yml
+  run-unit-tests:
+    name: Run Unit tests
+    uses: ./.github/workflows/run-integration-tests.yml
 
-  test-integration:
-      - name: Run Integration tests
-        run: ./.github/workflows/run-integration-tests.yml
+  run-integration-tests:
+    name: Run Integration tests
+    uses: ./.github/workflows/run-integration-tests.yml
